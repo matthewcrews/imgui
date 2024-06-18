@@ -1970,11 +1970,11 @@ enum ImGuiInputFlagsPrivate_
 {
     // Flags for IsKeyPressed(), IsKeyChordPressed(), IsMouseClicked(), Shortcut()
     // - Repeat mode: Repeat rate selection
-    ImGuiInputFlags_RepeatRateDefault = 1 << 1,  // Repeat rate: Regular (default)
-    ImGuiInputFlags_RepeatRateNavMove = 1 << 2,  // Repeat rate: Fast
-    ImGuiInputFlags_RepeatRateNavTweak = 1 << 3, // Repeat rate: Faster
-                                                 // - Repeat mode: Specify when repeating key pressed can be interrupted.
-                                                 // - In theory ImGuiInputFlags_RepeatUntilOtherKeyPress may be a desirable default, but it would break too many behavior so everything is opt-in.
+    ImGuiInputFlags_RepeatRateDefault = 1 << 1,                // Repeat rate: Regular (default)
+    ImGuiInputFlags_RepeatRateNavMove = 1 << 2,                // Repeat rate: Fast
+    ImGuiInputFlags_RepeatRateNavTweak = 1 << 3,               // Repeat rate: Faster
+                                                               // - Repeat mode: Specify when repeating key pressed can be interrupted.
+                                                               // - In theory ImGuiInputFlags_RepeatUntilOtherKeyPress may be a desirable default, but it would break too many behavior so everything is opt-in.
     ImGuiInputFlags_RepeatUntilRelease = 1 << 4,               // Stop repeating when released (default for all functions except Shortcut). This only exists to allow overriding Shortcut() default behavior.
     ImGuiInputFlags_RepeatUntilKeyModsChange = 1 << 5,         // Stop repeating when released OR if keyboard mods are changed (default for Shortcut)
     ImGuiInputFlags_RepeatUntilKeyModsChangeFromNone = 1 << 6, // Stop repeating when released OR if keyboard mods are leaving the None state. Allows going from Mod+Key to Key by releasing Mod.
@@ -2278,10 +2278,10 @@ enum ImGuiDockNodeFlagsPrivate_
                                                             // Disable docking/undocking actions in this dockspace or individual node (existing docked nodes will be preserved)
                                                             // Those are not exposed in public because the desirable sharing/inheriting/copy-flag-on-split behaviors are quite difficult to design and understand.
                                                             // The two public flags ImGuiDockNodeFlags_NoDockingOverCentralNode/ImGuiDockNodeFlags_NoDockingSplit don't have those issues.
-    ImGuiDockNodeFlags_NoDockingSplitOther = 1 << 19, //       // Disable this node from splitting other windows/nodes.
-    ImGuiDockNodeFlags_NoDockingOverMe = 1 << 20,     //       // Disable other windows/nodes from being docked over this node.
-    ImGuiDockNodeFlags_NoDockingOverOther = 1 << 21,  //       // Disable this node from being docked over another window or non-empty node.
-    ImGuiDockNodeFlags_NoDockingOverEmpty = 1 << 22,  //       // Disable this node from being docked over an empty node (e.g. DockSpace with no other windows)
+    ImGuiDockNodeFlags_NoDockingSplitOther = 1 << 19,       //       // Disable this node from splitting other windows/nodes.
+    ImGuiDockNodeFlags_NoDockingOverMe = 1 << 20,           //       // Disable other windows/nodes from being docked over this node.
+    ImGuiDockNodeFlags_NoDockingOverOther = 1 << 21,        //       // Disable this node from being docked over another window or non-empty node.
+    ImGuiDockNodeFlags_NoDockingOverEmpty = 1 << 22,        //       // Disable this node from being docked over an empty node (e.g. DockSpace with no other windows)
     ImGuiDockNodeFlags_NoDocking = ImGuiDockNodeFlags_NoDockingOverMe | ImGuiDockNodeFlags_NoDockingOverOther | ImGuiDockNodeFlags_NoDockingOverEmpty | ImGuiDockNodeFlags_NoDockingSplit | ImGuiDockNodeFlags_NoDockingSplitOther,
     // Masks
     ImGuiDockNodeFlags_SharedFlagsInheritMask_ = ~0,
