@@ -18112,30 +18112,30 @@ static int IMGUI_CDECL TabItemComparerByDockOrder(const void *lhs, const void *r
 // Custom overrides may want to decorate, group, sort entries.
 // Please note those are internal structures: if you copy this expect occasional breakage.
 // (if you don't need to modify the "Tabs.Size == 1" behavior/path it is recommend you call this function in your handler)
-void ImGui::DockNodeWindowMenuHandler_Default(ImGuiContext *ctx, ImGuiDockNode *node, ImGuiTabBar *tab_bar)
-{
-    IM_UNUSED(ctx);
-    if (tab_bar->Tabs.Size == 1)
-    {
-        // "Hide tab bar" option. Being one of our rare user-facing string we pull it from a table.
-        if (MenuItem(LocalizeGetMsg(ImGuiLocKey_DockingHideTabBar), NULL, node->IsHiddenTabBar()))
-            node->WantHiddenTabBarToggle = true;
-    }
-    else
-    {
-        // Display a selectable list of windows in this docking node
-        for (int tab_n = 0; tab_n < tab_bar->Tabs.Size; tab_n++)
-        {
-            ImGuiTabItem *tab = &tab_bar->Tabs[tab_n];
-            if (tab->Flags & ImGuiTabItemFlags_Button)
-                continue;
-            if (Selectable(TabBarGetTabName(tab_bar, tab), tab->ID == tab_bar->SelectedTabId))
-                TabBarQueueFocus(tab_bar, tab);
-            SameLine();
-            Text("   ");
-        }
-    }
-}
+// void ImGui::DockNodeWindowMenuHandler_Default(ImGuiContext *ctx, ImGuiDockNode *node, ImGuiTabBar *tab_bar)
+// {
+//     IM_UNUSED(ctx);
+//     if (tab_bar->Tabs.Size == 1)
+//     {
+//         // "Hide tab bar" option. Being one of our rare user-facing string we pull it from a table.
+//         if (MenuItem(LocalizeGetMsg(ImGuiLocKey_DockingHideTabBar), NULL, node->IsHiddenTabBar()))
+//             node->WantHiddenTabBarToggle = true;
+//     }
+//     else
+//     {
+//         // Display a selectable list of windows in this docking node
+//         for (int tab_n = 0; tab_n < tab_bar->Tabs.Size; tab_n++)
+//         {
+//             ImGuiTabItem *tab = &tab_bar->Tabs[tab_n];
+//             if (tab->Flags & ImGuiTabItemFlags_Button)
+//                 continue;
+//             if (Selectable(TabBarGetTabName(tab_bar, tab), tab->ID == tab_bar->SelectedTabId))
+//                 TabBarQueueFocus(tab_bar, tab);
+//             SameLine();
+//             Text("   ");
+//         }
+//     }
+// }
 
 static void ImGui::DockNodeWindowMenuUpdate(ImGuiDockNode *node, ImGuiTabBar *tab_bar)
 {
